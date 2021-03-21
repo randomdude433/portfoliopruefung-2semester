@@ -30,3 +30,11 @@ Implementieren Sie das Interface ```Ort``` aus der Datei ```Ort.java```.
 
 Der Konstruktor muss die Eindeutigkeit der ID garantieren.
 Überlegen Sie sich, wie Sie dies erreichen können.
+
+## Implementieren Sie das Interface ```KontaktDatenbank```.
+
+Implementieren Sie das Interface ```KontaktDatenbank```
+aus der Datei ```KontaktDatenbank.java```.
+
+Überlegen Sie sich, welche Datenstrukturen Sie intern verwenden
+wollen, um die Methoden möglichst einfach/effizient zu implementieren.
