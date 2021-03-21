@@ -12,8 +12,14 @@ public interface KontaktDatenbank {
     /** Fügt eine Person zur Datenbank hinzu. **/
     public void addPerson(Person person);
 
+    /** Liefert die Person mit der angegebenen ID. **/
+    public Person getPerson(int id);
+
     /** Fügt einen Ort zur Datenbank hinzu. **/
     public void addOrt(Ort ort);
+
+    /** Liefert den Ort mit der angegebenen ID. **/
+    public Ort getOrt(int id);
 
     /** Registriert eine Begegnung zwischen zwei Personen. **/
     public void addBegegnung(Person person1, Person person2);
