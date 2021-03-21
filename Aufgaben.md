@@ -15,9 +15,18 @@ umgesetzt wurde.
 Ihre Klasse darf neben den vom Interface vorgegebenen Methoden noch weitere enthalten,
 wenn Sie das für sinnvoll halten.
 
+
 ## Implementieren Sie das Interface ```Person```.
 
 Implementieren Sie das Interface ```Person``` aus der Datei ```Person.java```.
+
+Der Konstruktor muss die Eindeutigkeit der ID garantieren.
+Überlegen Sie sich, wie Sie dies erreichen können.
+
+
+## Implementieren Sie das Interface ```Ort```.
+
+Implementieren Sie das Interface ```Ort``` aus der Datei ```Ort.java```.
 
 Der Konstruktor muss die Eindeutigkeit der ID garantieren.
 Überlegen Sie sich, wie Sie dies erreichen können.

@@ -3,7 +3,7 @@ BUILDDIR = build
 PKGDIR = de/dhbw/kontakte
 PKG = de.dhbw.kontakte
 MAINCLASS = Kontakte
-SOURCES = Kontakte.java Person.java
+SOURCES = Kontakte.java Person.java Ort.java
 CLASSES := $(patsubst %.java, %.class, $(SOURCES))
 SOURCEFILES := $(patsubst %.java, $(SRCDIR)/$(PKGDIR)/%.java, $(SOURCES))
 
