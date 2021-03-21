@@ -1,5 +1,6 @@
 package de.dhbw.kontakte;
 
+/** Interface für Orte mit eindeutiger ID und Kontaktdaten. **/
 public interface Ort {
     /** Liefert die ID des Ortes.
      * 
