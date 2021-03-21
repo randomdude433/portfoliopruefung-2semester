@@ -15,6 +15,9 @@ public interface KontaktDatenbank {
     /** Liefert die Person mit der angegebenen ID. **/
     public Person getPerson(int id);
 
+    /** Liefert alle Personen mit dem angegebenen Namen. **/
+    public List<Person> getPersons(String name);
+
     /** Fügt einen Ort zur Datenbank hinzu. **/
     public void addOrt(Ort ort);
 
