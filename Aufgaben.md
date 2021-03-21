@@ -38,3 +38,12 @@ aus der Datei ```KontaktDatenbank.java```.
 
 Überlegen Sie sich, welche Datenstrukturen Sie intern verwenden
 wollen, um die Methoden möglichst einfach/effizient zu implementieren.
+
+## Schreiben Sie eine Demo-Anwendung zur Kontaktverfolgung.
+
+Schreiben Sie ein Programm, das die Funktionalität der Kontaktverfolgung demonstriert.
+Das Programm sollte folgende Möglichkeiten bieten:
+
+- Hinzufügen von Orten und Personen zur Datenbank.
+- Registrieren von Begegnungen und Ortsbesuchen.
+- Abfragen von Begegnungen und Ortsbesuchen.
