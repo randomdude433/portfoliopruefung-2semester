@@ -6,8 +6,8 @@ Im Quell-Ordner sind eine Main-Klasse und eine Reihe von *Interfaces* vorgegeben
 Ein Interface ist sozusagen eine leere Klassenvorlage, die vorgibt, welche Methoden
 eine Klasse haben muss.
 
-Ihre Aufgaben bestehen zunächst darin, diese Interfaces zu implementieren.
-D.h. Sie sollen Klassen bereitstellen, die die Methoden der Interfaces inplementieren.
+Ihre Aufgaben bestehen zunächst darin, diese Interfaces zu implementieren,
+d. h. Sie sollen Klassen bereitstellen, die die Methoden der Interfaces implementieren.
 
 Dabei verwendet man das Schlüsselwort ```implements```, um dem Compiler
 mitzuteilen, dass man ein bestimmtes Interface implementiert.
@@ -70,7 +70,7 @@ Uhrzeit mit erfassen und abfragen kann.
 
 ### Abfrage von Begegnungen/Besuchen zu Zeitpunkten oder Zeiträumen.
 
-Fügen Sie die Möglichkeit hinzu bei einer Abfrage eine Zeitangabe oder einen Zeitraum
+Fügen Sie die Möglichkeit hinzu, bei einer Abfrage eine Zeitangabe oder einen Zeitraum
 anzugeben. Als Ergebnis sollen dann nur Begegnungen oder Besuche geliefert werden,
 die zur Abfrage passen.
 
@@ -83,7 +83,7 @@ gewissen Zeitraum begegnet ist.
 ### Demo-Anwendung der erweiterten Funktionalität.
 
 Schreiben Sie eine Demo-App, die die gesamte zur Verfügung stehende Funktionalität
-demonstiert. 
+demonstriert. 
 
 
 ## Bonus- / Zusatzaufgaben
@@ -97,10 +97,10 @@ können Sie gerne auch diese umsetzen.
 
 Überlegen Sie sich ein Konzept zur Speicherung der Datenbank auf der Festplatte
 und setzen Sie es um.
-Sie können z.B. mit die Datenformate *JSON* oder *XML* verwenden.
+Sie können z. B. mit die Datenformate *JSON* oder *XML* verwenden.
 Dazu müssten Sie sich einerseits mit den Formaten vertraut machen und andererseits
 ggf. einen Parser für Ihr Format schreiben oder finden und verwenden.
 
 ### Grafische Benutzeroberfläche
 
-Entwickeln Sie eine GUI für das System, z.B. mit JavaFX oder ein einfaches Webinterface.
+Entwickeln Sie ein Graphical User Interface (GUI) für das System, z. B. mit JavaFX oder ein einfaches Webinterface.
