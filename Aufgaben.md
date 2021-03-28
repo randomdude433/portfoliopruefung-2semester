@@ -104,3 +104,9 @@ ggf. einen Parser für Ihr Format schreiben oder finden und verwenden.
 ### Grafische Benutzeroberfläche
 
 Entwickeln Sie ein Graphical User Interface (GUI) für das System, z. B. mit JavaFX oder ein einfaches Webinterface.
+
+### Transitive Beziehung zwischen Personen
+
+Eine Infektion geschieht natürlich nicht immer nur zwischen genau zwei Personen.
+Infiziert sich *Person B* nach einem Kontakt von *Person A* und ist danach im Kontakt mit *Person C*, sollte *Person C* ebenfalls kontaktiert werden.
+Erweitern Sie Ihre Kontaktverfolgung um eine Funktionalität, die solche Zusammenhänge identifizieren kann, sodass mehrere "Kontaktstufen" abgebildet werden können.
