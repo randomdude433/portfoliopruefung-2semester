@@ -19,5 +19,5 @@ public interface Ort {
      * 
      * Darf auch null sein.
      **/
-    public String getAddress();
+    public String getAdresse();
 }

@@ -20,7 +20,7 @@ public interface Person {
      * 
      * Darf auch null sein.
      **/
-    public String getAddress();
+    public String getAdresse();
 
     /** Liefert die Telefonnummer der Person.
      * 
