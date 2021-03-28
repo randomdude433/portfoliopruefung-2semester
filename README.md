@@ -16,13 +16,14 @@ Machen Sie sich auch über Randbedingungen Gedanken, also mit welchen "besondere
 
 ### Abstimmungstermin
 - Diese Portfolioprüfung wird nicht in einer Gruppe, sondern **einzeln** bearbeitet und abgegeben.
-- Pro Person ein Termin, bei dem der jeweilige Zwischenstand besprochen wird.
+- Pro Person ein verpflichtender Termin, bei dem der jeweilige Zwischenstand besprochen wird.
 - Ziel: Prüfung der Eigenständigkeit sowie Tipps bzw. Beratung durch die Dozenten.
 - Die verfügbaren Zeitslots werden im Moodle-Kurs hinterlegt.
 - Die Bearbeitung muss zu diesem Zeitpunkt noch nicht vollständig sein. Sie sollten aber zumindest schon die Basis-Aufgaben gründlich bearbeitet haben, um eine gute Diskussionsgrundlage zu besitzen.
+- Die erfolgreiche Teilnahme am Abstimmungstermin ist Voraussetzung für das Bestehen der Prüfung.
 
 ### Abgabe
-- Spätestens am **xy.04.2021 um 23:59 Uhr (CET)** über Moodle
+- Spätestens am **07.05.2021 um 23:59 Uhr (CET)** über Moodle
 - ZIP-Datei mit Quellcode (`.java`-Dateien) und Dokumentation (PDF)
 - Moodle-Abgabe
 - Name und Matrikelnummer auf Deckblatt der Dokumentation nennen
@@ -37,9 +38,6 @@ Machen Sie sich auch über Randbedingungen Gedanken, also mit welchen "besondere
   - Klassendiagramm (UML) mit Klassen, Attributen, Methoden, Sichtbarkeiten und Beziehungen
   - Vorgehen und Umsetzung z. B. von Einfüge- und Suchlogiken beschreiben und erklären
   - Entscheidungen (z. B. für Datenstrukturen) erklären
-
-### Abstimmungstermin
-- Die erfolgreiche Teilnahme am Abstimmungstermin ist Voraussetzung für das Bestehen der Prüfung.
 
 ### Funktionalität
 Siehe [Aufgaben.md](Aufgaben.md).
@@ -56,5 +54,4 @@ Siehe [Aufgaben.md](Aufgaben.md).
 
 
 ## Deadlines
-- Terminvereinbarung zu **verpflichtendem** Abstimmungstermin bis spätestens xy.04.2021
-- Abgabe von Dokumentation und Code spätestens am **xy.04.2021 um 23:59 Uhr (CET)** über Moodle
+- Abgabe von Dokumentation und Code spätestens am **07.05.2021 um 23:59 Uhr (CET)** über Moodle

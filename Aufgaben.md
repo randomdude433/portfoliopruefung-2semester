@@ -97,7 +97,7 @@ können Sie gerne auch diese umsetzen.
 
 Überlegen Sie sich ein Konzept zur Speicherung der Datenbank auf der Festplatte
 und setzen Sie es um.
-Sie können z. B. mit die Datenformate *JSON* oder *XML* verwenden.
+Sie können z. B. die Datenformate *JSON* oder *XML* verwenden.
 Dazu müssten Sie sich einerseits mit den Formaten vertraut machen und andererseits
 ggf. einen Parser für Ihr Format schreiben oder finden und verwenden.
 
