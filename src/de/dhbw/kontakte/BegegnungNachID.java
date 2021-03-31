@@ -1,9 +1,9 @@
 package de.dhbw.kontakte;
 
-public class Begegnung {
+public class BegegnungNachID {
 
 
-        public Begegnung (Person person1, Person person2) {
+        public BegegnungNachID(Person person1, Person person2) {
             person1.getId();
             person2.getId();
 

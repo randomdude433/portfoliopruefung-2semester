@@ -15,8 +15,8 @@ public class Kontakte implements KontaktDatenbank, Ort, Person{
 
         private ArrayList<Person> personList = new ArrayList<>();
         private ArrayList<Ort> ortList = new ArrayList<>();
-        private ArrayList<Begegnung> begegnungen = new ArrayList<>();
-        private ArrayList <Besuch> besuche = new ArrayList<>();
+        private ArrayList<BegegnungNachID> begegnungen = new ArrayList<>();
+        private ArrayList <BesuchNachID> besuche = new ArrayList<>();
 
         /**
          * Hier werden die benötigten Variablen für das Interface Ort erstellt
@@ -42,13 +42,15 @@ public class Kontakte implements KontaktDatenbank, Ort, Person{
          * Hier erstelle ich Elemente der Klasse Besuch, um bei addBesuch ein Element der Klasse Besuch hinzuzufügen
          */
 
-        Besuch besuch1 = new Besuch(getPerson(getId()), getOrt(getId()));
+        BesuchNachID besuch1 = new BesuchNachID(getPerson(getId()), getOrt(getId()));
+        BesuchNachName besuch2 = new BesuchNachName(getName(), getName());
 
         /**
         * Hier erstelle ich Elemente der Klasse Besuch, um bei addBesuch ein Element der Klasse Besuch hinzuzufügen
         */
 
-        Begegnung begegnung1 = new Begegnung(getPerson(getId()), getPerson(getId()));
+        BegegnungNachID begegnung1 = new BegegnungNachID(getPerson(getId()), getPerson(getId()));
+        BegegnungNachName begegnung2 = new BegegnungNachName(getPerson(getId()).getName(), getPerson(getId()).getName());
 
         /**
          * Im folgenden Abschnitt implementiere ich das Interface für KontaktDatenbanken
@@ -68,6 +70,7 @@ public class Kontakte implements KontaktDatenbank, Ort, Person{
         }
 
         public void addOrt(Ort ort) {
+            ortList.add(ort);
         }
 
         public Ort getOrt(int id){
