@@ -16,7 +16,7 @@ public class Kontakte implements KontaktDatenbank, Ort, Person{
         private ArrayList<Person> personList = new ArrayList<>();
         private ArrayList<Ort> ortList = new ArrayList<>();
         private ArrayList<Begegnung> begegnungen = new ArrayList<>();
-        private ArrayList <BesuchNachID> besuche = new ArrayList<>();
+        private ArrayList <Besuch> besuche = new ArrayList<>();
 
 
         /**
@@ -43,7 +43,8 @@ public class Kontakte implements KontaktDatenbank, Ort, Person{
          * Hier erstelle ich Elemente der Klasse Besuch, um bei addBesuch ein Element der Klasse Besuch hinzuzufügen
          */
 
-        BesuchNachID besuch1 = new BesuchNachID(getPerson(getId()), getOrt(getId()));
+        Besuch besuchID = new Besuch(getPerson(getId()), getOrt(getOrtId()));
+        Besuch besuchName = new Besuch(getPerson(getName()), getOrt(getOrtName()));
 
         /**
         * Hier erstelle ich Elemente der Klasse Besuch, um bei addBesuch ein Element der Klasse Begegnung hinzuzufügen
@@ -81,6 +82,10 @@ public class Kontakte implements KontaktDatenbank, Ort, Person{
             return ort;
         }
 
+        public Ort getOrt(String ortName){
+            return ort;
+        }
+
         public void addBegegnung(Person person1, Person person2){
             begegnungen.add(begegnung1);
 
@@ -90,10 +95,11 @@ public class Kontakte implements KontaktDatenbank, Ort, Person{
         }
 
         public void addBesuch(Person person, Ort ort){
-            besuche.add(besuch1);
+            besuche.add(besuchID);
         }
 
         public void addBesuch(String namePerson, String nameOrt){
+            besuche.add(besuchName);
 
         }
 
