@@ -15,8 +15,9 @@ public class Kontakte implements KontaktDatenbank, Ort, Person{
 
         private ArrayList<Person> personList = new ArrayList<>();
         private ArrayList<Ort> ortList = new ArrayList<>();
-        private ArrayList<BegegnungNachID> begegnungen = new ArrayList<>();
+        private ArrayList<Begegnung> begegnungen = new ArrayList<>();
         private ArrayList <BesuchNachID> besuche = new ArrayList<>();
+
 
         /**
          * Hier werden die benötigten Variablen für das Interface Ort erstellt
@@ -43,14 +44,14 @@ public class Kontakte implements KontaktDatenbank, Ort, Person{
          */
 
         BesuchNachID besuch1 = new BesuchNachID(getPerson(getId()), getOrt(getId()));
-        BesuchNachName besuch2 = new BesuchNachName(getName(), getName());
 
         /**
-        * Hier erstelle ich Elemente der Klasse Besuch, um bei addBesuch ein Element der Klasse Besuch hinzuzufügen
+        * Hier erstelle ich Elemente der Klasse Besuch, um bei addBesuch ein Element der Klasse Begegnung hinzuzufügen
         */
 
-        BegegnungNachID begegnung1 = new BegegnungNachID(getPerson(getId()), getPerson(getId()));
-        BegegnungNachName begegnung2 = new BegegnungNachName(getPerson(getId()).getName(), getPerson(getId()).getName());
+        Begegnung begegnung1 = new Begegnung(getPerson(getId()), getPerson(getId()));
+        Begegnung begegnung2 = new Begegnung(getPerson(getName()), getPerson(getName()));
+
 
         /**
          * Im folgenden Abschnitt implementiere ich das Interface für KontaktDatenbanken
@@ -62,6 +63,9 @@ public class Kontakte implements KontaktDatenbank, Ort, Person{
             personList.add(person);
         }
         public Person getPerson(int id){
+            return person;
+        }
+        public Person getPerson (String name){
             return person;
         }
 
@@ -79,9 +83,10 @@ public class Kontakte implements KontaktDatenbank, Ort, Person{
 
         public void addBegegnung(Person person1, Person person2){
             begegnungen.add(begegnung1);
-        }
 
-        public void addBegegnung(String name1, String name2){
+        }
+        public void addBegegnung(String name1, String name2) {
+            begegnungen.add(begegnung2);
         }
 
         public void addBesuch(Person person, Ort ort){

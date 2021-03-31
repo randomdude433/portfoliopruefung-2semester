@@ -15,6 +15,9 @@ public interface KontaktDatenbank {
     /** Liefert die Person mit der angegebenen ID. **/
     public Person getPerson(int id);
 
+    /** Liefert die Person mit dem angegebenen Namen. **/
+    public Person getPerson (String name);
+
     /** Liefert alle Personen mit dem angegebenen Namen. **/
     public List<Person> getPersonen(String name);
 
