@@ -3,8 +3,6 @@ package de.dhbw.kontakte;
 /** Interface für Personen mit eindeutiger ID und Kontaktdaten. **/
 public interface Person {
 
-
-
     /** Liefert die ID der Person.
      * 
      * Die ID muss existieren (darf nicht null sein) und
