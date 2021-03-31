@@ -18,17 +18,15 @@ public class Kontakte implements KontaktDatenbank, Ort, Person{
         private ArrayList<Begegnung> begegnungen = new ArrayList<>();
         private ArrayList <Besuch> besuche = new ArrayList<>();
 
-
-
         /**
          * Hier werden die benötigten Variablen für das Interface Ort erstellt
          */
-
 
         private int ortID = this.getOrtId();
         private String ortName = this.getOrtName();
         private String ortAdresse = this.getOrtAdresse();
         private Ort ort = this.getOrt(this.ortID);
+
         /**
          * Hier werden die benötigten Variablen für das Interface Person erstellt
          */
@@ -46,10 +44,10 @@ public class Kontakte implements KontaktDatenbank, Ort, Person{
 
         Besuch besuch1 = new Besuch(getPerson(getId()), getOrt(getId()));
 
-
         /**
         * Hier erstelle ich Elemente der Klasse Besuch, um bei addBesuch ein Element der Klasse Besuch hinzuzufügen
         */
+
         Begegnung begegnung1 = new Begegnung(getPerson(getId()), getPerson(getId()));
 
         /**
@@ -136,11 +134,10 @@ public class Kontakte implements KontaktDatenbank, Ort, Person{
             return this.eMail;
         }
 
-
-
         /**
          * Hier besteht weiterhin die Main-Funktion
          */
+
         public static void main(String[] args) {
             System.out.println("Hello World");
         }
