@@ -20,4 +20,5 @@ public interface Ort {
      * Darf auch null sein.
      **/
     public String getOrtAdresse();
+
 }

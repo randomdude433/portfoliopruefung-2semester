@@ -13,10 +13,10 @@ public class Kontakte implements KontaktDatenbank, Ort, Person{
          * Hier werden die benötigten Variablen für das Interface KontaktDatenbank erstellt
          */
 
-        private ArrayList<Person> personList = new ArrayList<>();
-        private ArrayList<Ort> ortList = new ArrayList<>();
-        private ArrayList<Begegnung> begegnungen = new ArrayList<>();
-        private ArrayList <Besuch> besuche = new ArrayList<>();
+        public ArrayList<Person> personList = new ArrayList<>();
+        public ArrayList<Ort> ortList = new ArrayList<>();
+        public ArrayList<Begegnung> begegnungen = new ArrayList<>();
+        public ArrayList <Besuch> besuche = new ArrayList<>();
 
 
         /**
@@ -78,7 +78,7 @@ public class Kontakte implements KontaktDatenbank, Ort, Person{
             ortList.add(ort);
         }
 
-        public Ort getOrt(int id){
+        public Ort getOrt(int ortID){
             return ort;
         }
 
@@ -128,6 +128,12 @@ public class Kontakte implements KontaktDatenbank, Ort, Person{
             return this.ortAdresse;
         }
 
+        public void ortToSting(){
+            System.out.println( "Ort ID " + ortID + " Name: " + ortName + " Adresse: " + ortAdresse);
+        }
+
+
+
         /**
          * Hier implementiere ich das Interface Person in diese Klasse
          **/
@@ -153,8 +159,27 @@ public class Kontakte implements KontaktDatenbank, Ort, Person{
          */
 
         public static void main(String[] args) {
-            System.out.println("Hello World");
+
+            /**
+             * Hier in der Main erstelle ich erstmal die Listen, die wir als Datenbanken verwenden
+             */
+
+            ArrayList<Person> personList = new ArrayList<>();
+            ArrayList<Ort> ortList = new ArrayList<>();
+            ArrayList<Begegnung> begegnungen = new ArrayList<>();
+            ArrayList <Besuch> besuche = new ArrayList<>();
+
+            /**
+             * Zum Testen müssen wir zuerst Beispiel Objekte erstellen
+             */
+
+            Mensch jakob = new Mensch(1);
+            personList.add(jakob);
+            System.out.println(personList);
+
+
         }
 
 
     }
+
