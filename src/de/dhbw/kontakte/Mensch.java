@@ -16,7 +16,7 @@ public class Mensch implements Person{
     }
 
     public int getId(){
-        return this.id;
+        return this.id + 1;
     }
 
     public void setName(String name){
@@ -51,4 +51,14 @@ public class Mensch implements Person{
         return this.eMail;
     }
 
+    @Override
+    public String toString() {
+        return "Mensch{" +
+                "id = " + id +
+                ", name = '" + name + '\'' +
+                ", adresse = '" + adresse + '\'' +
+                ", tel = '" + tel + '\'' +
+                ", eMail = '" + eMail + '\'' +
+                '}';
+    }
 }

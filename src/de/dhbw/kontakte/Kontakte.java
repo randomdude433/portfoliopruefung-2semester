@@ -135,20 +135,40 @@ public class Kontakte implements KontaktDatenbank, Ort{
              * Hier in der Main erstelle ich erstmal die Listen, die wir als Datenbanken verwenden
              */
 
-            ArrayList<Person> personList = new ArrayList<>();
+            ArrayList<Mensch> personList = new ArrayList<>();
             ArrayList<Ort> ortList = new ArrayList<>();
             ArrayList<Begegnung> begegnungen = new ArrayList<>();
             ArrayList <Besuch> besuche = new ArrayList<>();
 
             /**
              * Zum Testen müssen wir zuerst Beispiel Objekte erstellen
+             *
+             * in dem Fall Jakob und Linus. Eine ID wird immer benötigt.
              */
 
             Mensch jakob = new Mensch(1);
-            jakob.setName("Jakob");
-            personList.add(jakob);
-            System.out.println(personList);
+            Mensch linus = new Mensch(2);
 
+            /**
+             * Alle anderen Variablen können hinzugefügt werden
+             */
+
+            jakob.setName("Jakob");
+            linus.setAdresse("Hünstetten");
+
+            /**
+             * Um diese Personen in die Datenbank aufzunehmen, muss man sie der entsprechenden Liste hinzufügen
+             */
+
+            personList.add(jakob);
+            personList.add(linus);
+
+            /**
+             * Zur Kontrolle kann man sich die Liste ausgeben lassen
+             */
+
+            System.out.println(jakob.toString());
+            System.out.println(personList);
 
         }
 
