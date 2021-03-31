@@ -3,8 +3,6 @@ package de.dhbw.kontakte;
 import java.util.ArrayList;
 import java.util.List;
 
-
-
 /**
  *  Um die Interfaces nutzen zu können, müssen diese erst implementiert werden
  */
@@ -20,6 +18,8 @@ public class Kontakte implements KontaktDatenbank, Ort, Person{
         private ArrayList<Begegnung> begegnungen = new ArrayList<>();
         private ArrayList <Besuch> besuche = new ArrayList<>();
 
+
+
         /**
          * Hier werden die benötigten Variablen für das Interface Ort erstellt
          */
@@ -28,7 +28,7 @@ public class Kontakte implements KontaktDatenbank, Ort, Person{
         private int ortID = this.getOrtId();
         private String ortName = this.getOrtName();
         private String ortAdresse = this.getOrtAdresse();
-
+        private Ort ort = this.getOrt(this.ortID);
         /**
          * Hier werden die benötigten Variablen für das Interface Person erstellt
          */
@@ -38,13 +38,19 @@ public class Kontakte implements KontaktDatenbank, Ort, Person{
         private String adresse = this.getAdresse();
         private String tel = this.getTel();
         private String eMail = this.getEMail();
-
+        private Person person = this.getPerson(this.id);
 
         /**
          * Hier erstelle ich Elemente der Klasse Besuch, um bei addBesuch ein Element der Klasse Besuch hinzuzufügen
          */
 
         Besuch besuch1 = new Besuch(getPerson(getId()), getOrt(getId()));
+
+
+        /**
+        * Hier erstelle ich Elemente der Klasse Besuch, um bei addBesuch ein Element der Klasse Besuch hinzuzufügen
+        */
+        Begegnung begegnung1 = new Begegnung(getPerson(getId()), getPerson(getId()));
 
         /**
          * Im folgenden Abschnitt implementiere ich das Interface für KontaktDatenbanken
@@ -56,25 +62,25 @@ public class Kontakte implements KontaktDatenbank, Ort, Person{
             personList.add(person);
         }
         public Person getPerson(int id){
-            return personList.get(id);
+            return person;
         }
 
         public List<Person> getPersonen(String name){
-            return this.getPersonen(getName());
+            return personList;
         }
 
         public void addOrt(Ort ort) {
         }
 
         public Ort getOrt(int id){
-            return getOrt(ortID);
+            return ort;
         }
 
         public void addBegegnung(Person person1, Person person2){
+            begegnungen.add(begegnung1);
         }
 
         public void addBegegnung(String name1, String name2){
-
         }
 
         public void addBesuch(Person person, Ort ort){
@@ -136,9 +142,7 @@ public class Kontakte implements KontaktDatenbank, Ort, Person{
          * Hier besteht weiterhin die Main-Funktion
          */
         public static void main(String[] args) {
-            System.out.println("Hallo Welt");
             System.out.println("Hello World");
-
         }
 
 
