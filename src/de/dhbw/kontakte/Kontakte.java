@@ -7,7 +7,7 @@ import java.util.List;
  *  Um die Interfaces nutzen zu können, müssen diese erst implementiert werden
  */
 
-public class Kontakte implements KontaktDatenbank, Ort, Person{
+public class Kontakte implements KontaktDatenbank, Ort{
 
         /**
          * Hier werden die benötigten Variablen für das Interface KontaktDatenbank erstellt
@@ -17,6 +17,8 @@ public class Kontakte implements KontaktDatenbank, Ort, Person{
         public ArrayList<Ort> ortList = new ArrayList<>();
         public ArrayList<Begegnung> begegnungen = new ArrayList<>();
         public ArrayList <Besuch> besuche = new ArrayList<>();
+
+        public Mensch mensch;
 
 
         /**
@@ -28,30 +30,20 @@ public class Kontakte implements KontaktDatenbank, Ort, Person{
         private String ortAdresse = this.getOrtAdresse();
         private Ort ort = this.getOrt(this.ortID);
 
-        /**
-         * Hier werden die benötigten Variablen für das Interface Person erstellt
-         */
-
-        private int id = this.getId();
-        private String name = this.getName();
-        private String adresse = this.getAdresse();
-        private String tel = this.getTel();
-        private String eMail = this.getEMail();
-        private Person person = this.getPerson(this.id);
 
         /**
          * Hier erstelle ich Elemente der Klasse Besuch, um bei addBesuch ein Element der Klasse Besuch hinzuzufügen
          */
 
-        Besuch besuchID = new Besuch(getPerson(getId()), getOrt(getOrtId()));
-        Besuch besuchName = new Besuch(getPerson(getName()), getOrt(getOrtName()));
+        Besuch besuchID = new Besuch(getPerson(mensch.getId()), getOrt(getOrtId()));
+        Besuch besuchName = new Besuch(getPerson(mensch.getName()), getOrt(getOrtName()));
 
         /**
         * Hier erstelle ich Elemente der Klasse Besuch, um bei addBesuch ein Element der Klasse Begegnung hinzuzufügen
         */
 
-        Begegnung begegnung1 = new Begegnung(getPerson(getId()), getPerson(getId()));
-        Begegnung begegnung2 = new Begegnung(getPerson(getName()), getPerson(getName()));
+        Begegnung begegnung1 = new Begegnung(getPerson(mensch.getId()), getPerson(mensch.getId()));
+        Begegnung begegnung2 = new Begegnung(getPerson(mensch.getName()), getPerson(mensch.getName()));
 
 
         /**
@@ -64,10 +56,10 @@ public class Kontakte implements KontaktDatenbank, Ort, Person{
             personList.add(person);
         }
         public Person getPerson(int id){
-            return person;
+            return mensch;
         }
         public Person getPerson (String name){
-            return person;
+            return mensch;
         }
 
         public List<Person> getPersonen(String name){
@@ -133,27 +125,6 @@ public class Kontakte implements KontaktDatenbank, Ort, Person{
         }
 
 
-
-        /**
-         * Hier implementiere ich das Interface Person in diese Klasse
-         **/
-
-        public int getId(){
-            return this.id;
-        }
-        public String getName(){
-            return this.name;
-        }
-        public String getAdresse(){
-            return this.adresse;
-        }
-        public String getTel(){
-            return this.tel;
-        }
-        public String getEMail(){
-            return this.eMail;
-        }
-
         /**
          * Hier besteht weiterhin die Main-Funktion
          */
@@ -174,6 +145,7 @@ public class Kontakte implements KontaktDatenbank, Ort, Person{
              */
 
             Mensch jakob = new Mensch(1);
+            jakob.setName("Jakob");
             personList.add(jakob);
             System.out.println(personList);
 
