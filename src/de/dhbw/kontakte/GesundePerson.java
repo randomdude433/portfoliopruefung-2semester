@@ -9,14 +9,18 @@ public class GesundePerson implements Person{
     private String eMail;
 
     public GesundePerson(int id) {
-        id = this.id;
+        this.id = id;
     }
     public Boolean istGesund(){
         return true;
     }
 
     public int getId(){
-        return this.id + 1;
+        return this.id;
+    }
+
+    public void setId(int id){
+        this.id = id;
     }
 
     public void setName(String name){

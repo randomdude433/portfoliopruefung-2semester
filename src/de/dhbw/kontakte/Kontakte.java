@@ -5,6 +5,8 @@ import java.util.List;
 
 /**
  *  Um die Interfaces nutzen zu können, müssen diese erst implementiert werden
+ *
+ *  In Kontakte implementiere ich die KontaktDatenbanken
  */
 
 public class Kontakte implements KontaktDatenbank{
@@ -19,8 +21,6 @@ public class Kontakte implements KontaktDatenbank{
         public ArrayList<Location> ortList = new ArrayList<>();
         public ArrayList<Begegnung> begegnungen = new ArrayList<>();
         public ArrayList <Besuch> besuche = new ArrayList<>();
-
-        public GesundePerson gesundePerson;
         public Person person;
         public Location location;
 
@@ -28,16 +28,8 @@ public class Kontakte implements KontaktDatenbank{
          * Hier erstelle ich Elemente der Klasse Besuch, um bei addBesuch ein Element der Klasse Besuch hinzuzufügen
          */
 
-        Besuch besuchID = new Besuch(getPerson(gesundePerson.getId()), getOrt(location.getOrtId()));
-        Besuch besuchName = new Besuch(getPerson(gesundePerson.getName()), getOrt(location.getOrtName()));
-
-        /**
-        * Hier erstelle ich Elemente der Klasse Besuch, um bei addBesuch ein Element der Klasse Begegnung hinzuzufügen
-        */
-
-        Begegnung begegnung1 = new Begegnung(getPerson(gesundePerson.getId()), getPerson(gesundePerson.getId()));
-        Begegnung begegnung2 = new Begegnung(getPerson(gesundePerson.getName()), getPerson(gesundePerson.getName()));
-
+        Besuch besuchID = new Besuch(getPerson(person.getId()), getOrt(location.getOrtId()));
+        Besuch besuchName = new Besuch(getPerson(person.getName()), getOrt(location.getOrtName()));
 
         /**
          * Im folgenden Abschnitt implementiere ich das Interface für KontaktDatenbanken
@@ -53,19 +45,20 @@ public class Kontakte implements KontaktDatenbank{
 
         public void addPerson(Person person){
             if (person.istGesund() == true){
-                gesundePeople.add(this.person);
-                personList.add(this.person);
+                this.gesundePeople.add(this.person);
+                this.personList.add(this.person);
             } else if (person.istGesund() == false){
-                erkranktePeople.add(this.person);
-                personList.add(this.person);
+                this.erkranktePeople.add(this.person);
+                this.personList.add(this.person);
             } else {
-                personList.add(person);
+                this.personList.add(person);
             }
         }
 
         public Person getPerson(int id){
             return person;
         }
+
         public Person getPerson (String name){
             return person;
         }
@@ -86,10 +79,17 @@ public class Kontakte implements KontaktDatenbank{
             return location;
         }
 
+    /**
+     * Hier erstelle ich Elemente der Klasse Besuch, um bei addBesuch ein Element der Klasse Begegnung hinzuzufügen
+     */
+
+    Begegnung begegnung1 = new Begegnung(getPerson(person.getId()), getPerson(person.getId()));
+    Begegnung begegnung2 = new Begegnung(getPerson(person.getName()), getPerson(person.getName()));
+
         public void addBegegnung(Person person1, Person person2){
             begegnungen.add(begegnung1);
-
         }
+
         public void addBegegnung(String name1, String name2) {
             begegnungen.add(begegnung2);
         }
@@ -100,7 +100,6 @@ public class Kontakte implements KontaktDatenbank{
 
         public void addBesuch(String namePerson, String nameOrt){
             besuche.add(besuchName);
-
         }
 
         public List<Ort> besuchteOrte(Person person){
@@ -120,7 +119,7 @@ public class Kontakte implements KontaktDatenbank{
             /**
              * Hier in der Main erstelle ich erstmal die Listen, die wir als Datenbanken verwenden
              */
-
+            ArrayList<Person> kontakte = new ArrayList<>();
             ArrayList<Person> personList = new ArrayList<>();
             ArrayList<GesundePerson> gesundePeople = new ArrayList<>();
             ArrayList<ErkranktePerson> erkranktePeople = new ArrayList<>();
@@ -137,6 +136,7 @@ public class Kontakte implements KontaktDatenbank{
             GesundePerson jakob = new GesundePerson(10);
             GesundePerson linus = new GesundePerson(2);
             ErkranktePerson benjamin = new ErkranktePerson(1);
+            Begegnung begegnung1 = new Begegnung(jakob, benjamin);
 
 
             /**
@@ -144,8 +144,11 @@ public class Kontakte implements KontaktDatenbank{
              */
 
             jakob.setName("Jakob");
+            jakob.setId(1);
             linus.setAdresse("Hünstetten");
             benjamin.setName("Benjamin");
+            benjamin.setId(3);
+            begegnungen.add(begegnung1);
 
             /**
              * Um diese Personen in die Datenbank aufzunehmen, muss man sie der entsprechenden Liste hinzufügen
@@ -159,14 +162,13 @@ public class Kontakte implements KontaktDatenbank{
             erkranktePeople.add(benjamin);
 
             /**
-             * Zur Kontrolle kann man sich die Liste ausgeben lassen
+             * Zur Kontrolle kann man sich die Listen ausgeben lassen
              */
 
-            System.out.println(jakob.getAdresse());
-            System.out.println(personList);
-            System.out.println(gesundePeople);
-            System.out.println(erkranktePeople);
-            System.out.println();
+            System.out.println("Registrierte Personen: " + personList);
+            System.out.println( "Gesunde Personen: " + gesundePeople);
+            System.out.println("Erkrankte Personen: " + erkranktePeople);
+            System.out.println("Registrierte Begegnungen: " + begegnungen);
 
 
 
