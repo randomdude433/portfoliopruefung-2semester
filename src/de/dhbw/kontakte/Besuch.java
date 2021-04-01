@@ -1,11 +1,11 @@
 package de.dhbw.kontakte;
 
 public class Besuch {
-    public Besuch(Person person, Ort ort) {
+    public Besuch(Person person, Location location) {
         person.getId();
         person.getName();
-        ort.getOrtId();
-        ort.getOrtName();
+        location.getOrtId();
+        location.getOrtName();
 
     }
 

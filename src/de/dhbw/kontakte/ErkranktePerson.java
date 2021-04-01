@@ -1,6 +1,6 @@
 package de.dhbw.kontakte;
 
-public class Mensch implements Person{
+public class ErkranktePerson implements Person{
 
     private int id;
     private String name;
@@ -8,9 +8,14 @@ public class Mensch implements Person{
     private String tel;
     private String eMail;
 
-    public Mensch(int id) {
+    public ErkranktePerson(int id) {
         id = this.id;
     }
+
+    public Boolean istGesund(){
+        return false;
+    }
+
     public void setId(int id){
         this.id = id;
     }
@@ -53,7 +58,7 @@ public class Mensch implements Person{
 
     @Override
     public String toString() {
-        return "Mensch{" +
+        return "Erkrankte Person " +
                 "id = " + id +
                 ", name = '" + name + '\'' +
                 ", adresse = '" + adresse + '\'' +

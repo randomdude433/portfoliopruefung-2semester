@@ -1,49 +1,42 @@
 package de.dhbw.kontakte;
 
-import java.util.ArrayList;
+import java.util.*;
 import java.util.List;
 
 /**
  *  Um die Interfaces nutzen zu können, müssen diese erst implementiert werden
  */
 
-public class Kontakte implements KontaktDatenbank, Ort{
+public class Kontakte implements KontaktDatenbank{
 
         /**
          * Hier werden die benötigten Variablen für das Interface KontaktDatenbank erstellt
          */
 
-        public ArrayList<Person> personList = new ArrayList<>();
-        public ArrayList<Ort> ortList = new ArrayList<>();
+        public List<Person> personList = new ArrayList<>();
+        public List<GesundePerson> gesundePeople = new ArrayList<>();
+        public List<ErkranktePerson> erkranktePeople = new ArrayList<>();
+        public ArrayList<Location> ortList = new ArrayList<>();
         public ArrayList<Begegnung> begegnungen = new ArrayList<>();
         public ArrayList <Besuch> besuche = new ArrayList<>();
 
-        public Mensch mensch;
-
-
-        /**
-         * Hier werden die benötigten Variablen für das Interface Ort erstellt
-         */
-
-        private int ortID = this.getOrtId();
-        private String ortName = this.getOrtName();
-        private String ortAdresse = this.getOrtAdresse();
-        private Ort ort = this.getOrt(this.ortID);
-
+        public GesundePerson gesundePerson;
+        public Person person;
+        public Location location;
 
         /**
          * Hier erstelle ich Elemente der Klasse Besuch, um bei addBesuch ein Element der Klasse Besuch hinzuzufügen
          */
 
-        Besuch besuchID = new Besuch(getPerson(mensch.getId()), getOrt(getOrtId()));
-        Besuch besuchName = new Besuch(getPerson(mensch.getName()), getOrt(getOrtName()));
+        Besuch besuchID = new Besuch(getPerson(gesundePerson.getId()), getOrt(location.getOrtId()));
+        Besuch besuchName = new Besuch(getPerson(gesundePerson.getName()), getOrt(location.getOrtName()));
 
         /**
         * Hier erstelle ich Elemente der Klasse Besuch, um bei addBesuch ein Element der Klasse Begegnung hinzuzufügen
         */
 
-        Begegnung begegnung1 = new Begegnung(getPerson(mensch.getId()), getPerson(mensch.getId()));
-        Begegnung begegnung2 = new Begegnung(getPerson(mensch.getName()), getPerson(mensch.getName()));
+        Begegnung begegnung1 = new Begegnung(getPerson(gesundePerson.getId()), getPerson(gesundePerson.getId()));
+        Begegnung begegnung2 = new Begegnung(getPerson(gesundePerson.getName()), getPerson(gesundePerson.getName()));
 
 
         /**
@@ -55,27 +48,37 @@ public class Kontakte implements KontaktDatenbank, Ort{
         public void addPerson(Person person){
             personList.add(person);
         }
+
         public Person getPerson(int id){
-            return mensch;
+            return person;
         }
         public Person getPerson (String name){
-            return mensch;
+            return person;
         }
 
         public List<Person> getPersonen(String name){
             return personList;
         }
 
+        public List<GesundePerson> getGesundePeople (String name){
+            return gesundePeople;
+        }
+
+        public List<ErkranktePerson> getErkranktePeople (String name){
+            return erkranktePeople;
+        }
+
+
         public void addOrt(Ort ort) {
-            ortList.add(ort);
+            ortList.add(location);
         }
 
-        public Ort getOrt(int ortID){
-            return ort;
+        public Location getOrt(int ortID){
+            return location;
         }
 
-        public Ort getOrt(String ortName){
-            return ort;
+        public Location getOrt(String ortName){
+            return location;
         }
 
         public void addBegegnung(Person person1, Person person2){
@@ -101,29 +104,7 @@ public class Kontakte implements KontaktDatenbank, Ort{
 
         public List<Person> begegnetePersonen(Person person){
             return this.begegnetePersonen(person);
-
         }
-
-        /**
-         * Hier implementiere ich das Interface Ort
-         */
-
-        public int getOrtId() {
-            return this.ortID;
-        }
-
-        public String getOrtName() {
-            return this.ortName;
-        }
-
-        public String getOrtAdresse() {
-            return this.ortAdresse;
-        }
-
-        public void ortToSting(){
-            System.out.println( "Ort ID " + ortID + " Name: " + ortName + " Adresse: " + ortAdresse);
-        }
-
 
         /**
          * Hier besteht weiterhin die Main-Funktion
@@ -135,7 +116,9 @@ public class Kontakte implements KontaktDatenbank, Ort{
              * Hier in der Main erstelle ich erstmal die Listen, die wir als Datenbanken verwenden
              */
 
-            ArrayList<Mensch> personList = new ArrayList<>();
+            ArrayList<Person> personList = new ArrayList<>();
+            ArrayList<GesundePerson> gesundePeople = new ArrayList<>();
+            ArrayList<ErkranktePerson> erkranktePeople = new ArrayList<>();
             ArrayList<Ort> ortList = new ArrayList<>();
             ArrayList<Begegnung> begegnungen = new ArrayList<>();
             ArrayList <Besuch> besuche = new ArrayList<>();
@@ -146,8 +129,9 @@ public class Kontakte implements KontaktDatenbank, Ort{
              * in dem Fall Jakob und Linus. Eine ID wird immer benötigt.
              */
 
-            Mensch jakob = new Mensch(1);
-            Mensch linus = new Mensch(2);
+            GesundePerson jakob = new GesundePerson(10);
+            GesundePerson linus = new GesundePerson(2);
+            ErkranktePerson benjamin = new ErkranktePerson(1);
 
             /**
              * Alle anderen Variablen können hinzugefügt werden
@@ -155,20 +139,30 @@ public class Kontakte implements KontaktDatenbank, Ort{
 
             jakob.setName("Jakob");
             linus.setAdresse("Hünstetten");
+            benjamin.setName("Benjamin");
 
             /**
              * Um diese Personen in die Datenbank aufzunehmen, muss man sie der entsprechenden Liste hinzufügen
              */
 
             personList.add(jakob);
+            gesundePeople.add(jakob);
             personList.add(linus);
+            gesundePeople.add(linus);
+            personList.add(benjamin);
+            erkranktePeople.add(benjamin);
 
             /**
              * Zur Kontrolle kann man sich die Liste ausgeben lassen
              */
 
-            System.out.println(jakob.toString());
+            System.out.println(jakob.getAdresse());
             System.out.println(personList);
+            System.out.println(gesundePeople);
+            System.out.println(erkranktePeople);
+
+
+
 
         }
 

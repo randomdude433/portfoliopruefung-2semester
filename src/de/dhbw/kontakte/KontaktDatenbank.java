@@ -25,7 +25,7 @@ public interface KontaktDatenbank {
     public void addOrt(Ort ort);
 
     /** Liefert den Ort mit der angegebenen ID. **/
-    public Ort getOrt(int id);
+    public Location getOrt(int id);
 
     /** Registriert eine Begegnung zwischen zwei Personen. **/
     public void addBegegnung(Person person1, Person person2);

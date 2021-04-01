@@ -33,4 +33,10 @@ public interface Person {
      * Darf auch null sein.
      **/
     public String getEMail();
+
+    /**
+     * Liefert zurück ob die Person erkrankt ist
+     **/
+    public Boolean istGesund();
+
 }
