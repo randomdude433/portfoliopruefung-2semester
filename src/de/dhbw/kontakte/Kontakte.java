@@ -14,8 +14,8 @@ public class Kontakte implements KontaktDatenbank{
          */
 
         public List<Person> personList = new ArrayList<>();
-        public List<GesundePerson> gesundePeople = new ArrayList<>();
-        public List<ErkranktePerson> erkranktePeople = new ArrayList<>();
+        public List<Person> gesundePeople = new ArrayList<>();
+        public List<Person> erkranktePeople = new ArrayList<>();
         public ArrayList<Location> ortList = new ArrayList<>();
         public ArrayList<Begegnung> begegnungen = new ArrayList<>();
         public ArrayList <Besuch> besuche = new ArrayList<>();
@@ -43,10 +43,24 @@ public class Kontakte implements KontaktDatenbank{
          * Im folgenden Abschnitt implementiere ich das Interface für KontaktDatenbanken
          *
          * Dafür muss jede Funktion aus KontaktDatenbanken hier formuliert werden.
-         * */
+         */
+
+        /**
+         * Die addPerson kann zwischen Erkrankten und nicht Erkrankten unterscheiden.
+         *
+         * Wenn das nicht angegeben ist, wird die Person weder als Krank, noch als Gesund gekennzeichnet
+         */
 
         public void addPerson(Person person){
-            personList.add(person);
+            if (person.istGesund() == true){
+                gesundePeople.add(this.person);
+                personList.add(this.person);
+            } else if (person.istGesund() == false){
+                erkranktePeople.add(this.person);
+                personList.add(this.person);
+            } else {
+                personList.add(person);
+            }
         }
 
         public Person getPerson(int id){
@@ -59,15 +73,6 @@ public class Kontakte implements KontaktDatenbank{
         public List<Person> getPersonen(String name){
             return personList;
         }
-
-        public List<GesundePerson> getGesundePeople (String name){
-            return gesundePeople;
-        }
-
-        public List<ErkranktePerson> getErkranktePeople (String name){
-            return erkranktePeople;
-        }
-
 
         public void addOrt(Ort ort) {
             ortList.add(location);
@@ -133,6 +138,7 @@ public class Kontakte implements KontaktDatenbank{
             GesundePerson linus = new GesundePerson(2);
             ErkranktePerson benjamin = new ErkranktePerson(1);
 
+
             /**
              * Alle anderen Variablen können hinzugefügt werden
              */
@@ -160,6 +166,7 @@ public class Kontakte implements KontaktDatenbank{
             System.out.println(personList);
             System.out.println(gesundePeople);
             System.out.println(erkranktePeople);
+            System.out.println();
 
 
 
