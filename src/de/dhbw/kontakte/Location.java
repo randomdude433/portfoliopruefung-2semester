@@ -24,12 +24,24 @@ public class Location implements Ort{
         return this.ortID;
     }
 
+    public void setOrtID(int ortID) {
+        this.ortID = ortID;
+    }
+
     public String getOrtName() {
         return this.ortName;
     }
 
+    public void setOrtName(String ortName) {
+        this.ortName = ortName;
+    }
+
     public String getOrtAdresse() {
         return this.ortAdresse;
+    }
+
+    public void setOrtAdresse(String ortAdresse) {
+        this.ortAdresse = ortAdresse;
     }
 
     public void ortToSting(){

@@ -5,12 +5,6 @@ import java.util.List;
 
 public class Kontaktdaten implements KontaktDatenbank {
 
-    public Kontaktdaten(){
-        ArrayList<Person> personList;
-        ArrayList<Integer> personIDList;
-        ArrayList<String> personNameList;
-    }
-
     /**
      * Hier werden die benötigten Variablen für das Interface KontaktDatenbank erstellt
      */
@@ -46,6 +40,7 @@ public class Kontaktdaten implements KontaktDatenbank {
      * */
 
     public void addPerson(Person person){
+        mensch.setId(personIDList.size());
         personIDList.add(person.getId(), personIDList.size());
         personNameList.add(person.getName());
         personList.add(person);

@@ -9,7 +9,6 @@ public class Mensch implements Person{
     private String eMail;
 
     public Mensch() {
-        int id;
         String name;
         String adresse;
         String tel;

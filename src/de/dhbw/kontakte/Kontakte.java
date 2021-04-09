@@ -35,11 +35,18 @@ public class Kontakte {
 
             k.addPerson(jakob);
             k.addPerson(linus);
-            System.out.println(k.personIDList + " " + k.personNameList + " " + k.personList);
+            k.addOrt(hollywood);
+
+            System.out.println(k.personIDList +
+                    "\n"  + k.personNameList +
+                    "\n" + k.personList +
+                    "\n" + k.ortList +
+                    "\n" + k.begegnungen +
+                    "\n" + k.besuche);
+
             /**
              * Zur Kontrolle kann man sich die Liste ausgeben lassen
              */
-
 
         }
 
