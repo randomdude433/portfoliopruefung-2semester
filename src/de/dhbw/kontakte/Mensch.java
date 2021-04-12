@@ -8,13 +8,6 @@ public class Mensch implements Person{
     private String tel;
     private String eMail;
 
-    public Mensch() {
-        String name;
-        String adresse;
-        String tel;
-        String eMail;
-    }
-
     public void setId(int id){
         this.id = id;
     }

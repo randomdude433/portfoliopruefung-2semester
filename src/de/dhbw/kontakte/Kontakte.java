@@ -37,6 +37,10 @@ public class Kontakte {
             k.addPerson(linus);
             k.addOrt(hollywood);
 
+            /**
+             * Zur Kontrolle kann man sich die Listen ausgeben lassen
+             */
+
             System.out.println(k.personIDList +
                     "\n"  + k.personNameList +
                     "\n" + k.personList +
@@ -44,9 +48,7 @@ public class Kontakte {
                     "\n" + k.begegnungen +
                     "\n" + k.besuche);
 
-            /**
-             * Zur Kontrolle kann man sich die Liste ausgeben lassen
-             */
+
 
         }
 

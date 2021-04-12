@@ -46,9 +46,14 @@ public class Kontaktdaten implements KontaktDatenbank {
         personList.add(person);
     }
 
-    public Person getPerson(int id){
-        return mensch;
+    public Person getPerson(int id) {
+        if (id == mensch.getId()) {
+            return mensch;
+        } else {
+            return null;
     }
+
+}
     public Person getPerson (String name){
         return mensch;
     }
