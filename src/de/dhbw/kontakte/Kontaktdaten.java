@@ -3,53 +3,55 @@ package de.dhbw.kontakte;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.HashMap;
 
 
 
 public class Kontaktdaten implements KontaktDatenbank {
 
     /**
-     * Hier werden die benötigten Variablen für das Interface KontaktDatenbank erstellt
+     * Hier werden die benötigten Listen für das Interface KontaktDatenbank erstellt
      */
 
     public ArrayList<Person> personList = new ArrayList<>();
     public ArrayList<Ort> ortList = new ArrayList<>();
-    public ArrayList<Begegnung> begegnungen = new ArrayList<>();
-    public ArrayList <Besuch> besuche = new ArrayList<>();
+    public ArrayList<Person> personArrayList = new ArrayList<>();
+
+    /**
+     * Da Begegnungen und Besuche aus zwei Variablen bestehen, ist es nicht ohne weiteres möglich, diese
+     * direkt in eine ArrayList zu speichern.
+     * Eine HashMap hingegen eignet sich sehr gut dafür, da man in diesen Paare abspeichern kann.
+     * Diese Paare müssen nicht vom gleichen Typ sein
+     */
+    public HashMap<Person, Person> begegnungen = new HashMap<>();
+    public HashMap<Person, Ort> besuche = new HashMap<>();
 
     public Mensch mensch = new Mensch();
     public Location location = new Location();
     private int eID;
 
     /**
-     * Hier erstelle ich Elemente der Klasse Besuch, um bei addBesuch ein Element der Klasse Besuch hinzuzufügen
-     */
-
-    Besuch besuchID = new Besuch(this.mensch, this.location);
-    Besuch besuchName = new Besuch(this.mensch, this.location);
-
-    /**
-     * Hier erstelle ich Elemente der Klasse Besuch, um bei addBesuch ein Element der Klasse Begegnung hinzuzufügen
-     */
-
-    Begegnung begegnung1 = new Begegnung(getPerson(mensch.getId()), getPerson(mensch.getId()));
-    Begegnung begegnung2 = new Begegnung(getPerson(mensch.getName()), getPerson(mensch.getName()));
-
-    /**
      * Im folgenden Abschnitt implementiere ich das Interface für KontaktDatenbanken
-     *
      * Dafür muss jede Funktion aus KontaktDatenbanken hier formuliert werden.
-     * */
+     */
 
     public void addPerson(Person person){
         int a = erstelleID();
-        mensch.setId(a);
-        personList.add(mensch);
+        this.mensch.setId(a);
+        personList.add(this.mensch);
     }
+
+    /**
+     * Da die Personen einzigartige IDs brauchen, habe ich einen Zufallsgenerator gebaut, der neue IDs erstellt,
+     * die positiv und nicht doppelt sind.
+     */
+
     public int erstelleID(){
         Random random = new Random();
         eID = random.nextInt();
         if(eID <= 0){
+            erstelleID();
+        } else if (eID == mensch.getId()){
             erstelleID();
         } else {
             System.out.println(eID);
@@ -57,22 +59,40 @@ public class Kontaktdaten implements KontaktDatenbank {
         return eID;
     }
 
+    /**
+     * die getPerson gleicht die eingegebene ID mit allen ID's von den Personen ab
+     */
+
     public Person getPerson(int id) {
-        if(mensch.getId()== id) {
-            System.out.println(mensch);
-            return mensch;
-        } else {
-            System.out.println("Keine Person ");
-            return null;
+        for (Person mensch:personList) {
+            if (mensch.getId() == id) {
+                System.out.println(mensch);
+                return mensch;
+            } else {
+                System.out.println("Keine Person ");
+                return null;
+            }
         }
-
+        return null;
     }
-    public Person getPerson (String name){
-        return mensch;
+    public Person getPerson (String name) {
+        for (int i = 0; i <= personList.size(); i++) {
+            if (mensch.getName() == name) {
+                return mensch;
+            }
+        }
+        return null;
     }
 
-    public List<Person> getPersonen(String name){
-        return personList;
+    public List<Person> getPersonen (String name){
+        for (Person mensch: personList ){
+            if (name == mensch.getName()){
+                personArrayList.add(this.mensch);
+                System.out.println("Mensch hinzugefügt");
+            }
+           return null;
+        }
+        return personArrayList;
     }
 
     public void addOrt(Ort ort) {
@@ -80,28 +100,37 @@ public class Kontaktdaten implements KontaktDatenbank {
     }
 
     public Ort getOrt(int ortID){
-        return this.getOrt(location.getOrtId());
+        for (Ort location: ortList){
+            if (location.getOrtId() == ortID){
+                return this.location;
+            }
+        }
+      return null;
     }
 
     public Ort getOrt(String ortName){
-        return this.getOrt(location.getOrtName());
+        for (Ort location: ortList){
+            if (location.getOrtName() == ortName){
+                return this.location;
+            }
+        }
+        return null;
     }
 
     public void addBegegnung(Person person1, Person person2){
-        begegnungen.add(begegnung1);
-
+        begegnungen.put(person1, person2);
     }
+
     public void addBegegnung(String name1, String name2) {
-        begegnungen.add(begegnung2);
+        begegnungen.put(getPerson(name1), getPerson(name2));
     }
 
     public void addBesuch(Person person, Ort ort){
-        besuche.add(besuchID);
+        besuche.put(person, ort);
     }
 
     public void addBesuch(String namePerson, String nameOrt){
-        besuche.add(besuchName);
-
+        besuche.put(getPerson(namePerson), getOrt(nameOrt));
     }
 
     public List<Ort> besuchteOrte(Person person){
@@ -110,7 +139,5 @@ public class Kontaktdaten implements KontaktDatenbank {
 
     public List<Person> begegnetePersonen(Person person){
         return this.begegnetePersonen(person);
-
     }
-
 }

@@ -18,6 +18,7 @@ public class Kontakte {
              */
 
             Mensch jakob = new Mensch();
+            Mensch jakob2 = new Mensch();
             Mensch linus = new Mensch();
             Location hollywood = new Location();
 
@@ -26,6 +27,7 @@ public class Kontakte {
              */
 
             jakob.setName("Jakob");
+            jakob2.setName("Jakob");
             linus.setAdresse("Hünstetten");
             linus.setName("Linus");
 
@@ -35,7 +37,9 @@ public class Kontakte {
 
             k.addPerson(jakob);
             k.addPerson(linus);
+            k.addPerson(jakob2);
             k.addOrt(hollywood);
+            k.getPersonen("Jakob");
 
 
             /**
@@ -44,8 +48,11 @@ public class Kontakte {
 
             System.out.println(k.personList +
                     "\n" + k.ortList +
+                    "\n" + k.personArrayList +
                     "\n" + k.begegnungen +
                     "\n" + k.besuche);
+
+            System.out.println(jakob);
 
 
 

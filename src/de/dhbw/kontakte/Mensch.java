@@ -8,7 +8,7 @@ public class Mensch implements Person{
     private String adresse;
     private String tel;
     private String eMail;
-    
+
 
     public int getId(){
         return this.id;
@@ -56,10 +56,10 @@ public class Mensch implements Person{
     public String toString() {
         return "Mensch{" +
                 "id = " + this.id +
-                ", name = '" + name + '\'' +
-                ", adresse = '" + adresse + '\'' +
-                ", tel = '" + tel + '\'' +
-                ", eMail = '" + eMail + '\'' +
+                ", name = '" + this.name + '\'' +
+                ", adresse = '" + this.adresse + '\'' +
+                ", tel = '" + this.tel + '\'' +
+                ", eMail = '" + this.eMail + '\'' +
                 '}';
     }
 }
