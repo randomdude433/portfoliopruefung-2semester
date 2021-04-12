@@ -37,13 +37,12 @@ public class Kontakte {
             k.addPerson(linus);
             k.addOrt(hollywood);
 
+
             /**
              * Zur Kontrolle kann man sich die Listen ausgeben lassen
              */
 
-            System.out.println(k.personIDList +
-                    "\n"  + k.personNameList +
-                    "\n" + k.personList +
+            System.out.println(k.personList +
                     "\n" + k.ortList +
                     "\n" + k.begegnungen +
                     "\n" + k.besuche);

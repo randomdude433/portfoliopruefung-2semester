@@ -1,5 +1,6 @@
 package de.dhbw.kontakte;
 
+
 public class Mensch implements Person{
 
     private int id;
@@ -7,13 +8,14 @@ public class Mensch implements Person{
     private String adresse;
     private String tel;
     private String eMail;
-
-    public void setId(int id){
-        this.id = id;
-    }
+    
 
     public int getId(){
         return this.id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public void setName(String name){
@@ -48,10 +50,12 @@ public class Mensch implements Person{
         return this.eMail;
     }
 
+
+
     @Override
     public String toString() {
         return "Mensch{" +
-                "id = " + id +
+                "id = " + this.id +
                 ", name = '" + name + '\'' +
                 ", adresse = '" + adresse + '\'' +
                 ", tel = '" + tel + '\'' +

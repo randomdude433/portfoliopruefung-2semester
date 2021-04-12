@@ -2,6 +2,9 @@ package de.dhbw.kontakte;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
+
+
 
 public class Kontaktdaten implements KontaktDatenbank {
 
@@ -10,14 +13,13 @@ public class Kontaktdaten implements KontaktDatenbank {
      */
 
     public ArrayList<Person> personList = new ArrayList<>();
-    public ArrayList<Integer> personIDList = new ArrayList<>();
-    public ArrayList<String> personNameList = new ArrayList<>();
     public ArrayList<Ort> ortList = new ArrayList<>();
     public ArrayList<Begegnung> begegnungen = new ArrayList<>();
     public ArrayList <Besuch> besuche = new ArrayList<>();
 
     public Mensch mensch = new Mensch();
     public Location location = new Location();
+    private int eID;
 
     /**
      * Hier erstelle ich Elemente der Klasse Besuch, um bei addBesuch ein Element der Klasse Besuch hinzuzufügen
@@ -40,20 +42,31 @@ public class Kontaktdaten implements KontaktDatenbank {
      * */
 
     public void addPerson(Person person){
-        mensch.setId(personIDList.size());
-        personIDList.add(person.getId(), personIDList.size());
-        personNameList.add(person.getName());
-        personList.add(person);
+        int a = erstelleID();
+        mensch.setId(a);
+        personList.add(mensch);
+    }
+    public int erstelleID(){
+        Random random = new Random();
+        eID = random.nextInt();
+        if(eID <= 0){
+            erstelleID();
+        } else {
+            System.out.println(eID);
+        }
+        return eID;
     }
 
     public Person getPerson(int id) {
-        if (id == mensch.getId()) {
+        if(mensch.getId()== id) {
+            System.out.println(mensch);
             return mensch;
         } else {
+            System.out.println("Keine Person ");
             return null;
-    }
+        }
 
-}
+    }
     public Person getPerson (String name){
         return mensch;
     }
@@ -99,4 +112,5 @@ public class Kontaktdaten implements KontaktDatenbank {
         return this.begegnetePersonen(person);
 
     }
+
 }
