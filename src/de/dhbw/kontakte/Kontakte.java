@@ -13,34 +13,18 @@ public class Kontakte {
 
             /**
              * Zum Testen müssen wir zuerst Beispiel Objekte erstellen
-             *
-             * in dem Fall Jakob und Linus. Eine ID wird immer benötigt.
              */
 
-            Mensch jakob = new Mensch();
-            Mensch jakob2 = new Mensch();
-            Mensch linus = new Mensch();
-            Location hollywood = new Location();
+            Mensch nuller = new Mensch("null", null, null, null);
+            Mensch jakob = new Mensch("Jakob", "Hünstetten", "32432546", "jakobthomas2@t-online.de");
 
-            /**
-             * Alle anderen Variablen können hinzugefügt werden
-             */
-
-            jakob.setName("Jakob");
-            jakob2.setName("Jakob");
-            linus.setAdresse("Hünstetten");
-            linus.setName("Linus");
 
             /**
              * Um diese Personen in die Datenbank aufzunehmen, muss man sie der entsprechenden Liste hinzufügen
              */
 
             k.addPerson(jakob);
-            k.addPerson(linus);
-            k.addPerson(jakob2);
-            k.addOrt(hollywood);
-            k.getPersonen("Jakob");
-
+            k.addPerson(nuller);
 
             /**
              * Zur Kontrolle kann man sich die Listen ausgeben lassen
@@ -52,7 +36,8 @@ public class Kontakte {
                     "\n" + k.begegnungen +
                     "\n" + k.besuche);
 
-            System.out.println(jakob);
+            System.out.println(nuller);
+            System.out.println(k.personList);
 
 
 

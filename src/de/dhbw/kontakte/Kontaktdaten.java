@@ -2,7 +2,6 @@ package de.dhbw.kontakte;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 import java.util.HashMap;
 
 
@@ -26,37 +25,17 @@ public class Kontaktdaten implements KontaktDatenbank {
     public HashMap<Person, Person> begegnungen = new HashMap<>();
     public HashMap<Person, Ort> besuche = new HashMap<>();
 
-    public Mensch mensch = new Mensch();
+    public Mensch mensch;
     public Location location = new Location();
-    private int eID;
+
 
     /**
      * Im folgenden Abschnitt implementiere ich das Interface für KontaktDatenbanken
      * Dafür muss jede Funktion aus KontaktDatenbanken hier formuliert werden.
      */
 
-    public void addPerson(Person person){
-        int a = erstelleID();
-        this.mensch.setId(a);
-        personList.add(this.mensch);
-    }
-
-    /**
-     * Da die Personen einzigartige IDs brauchen, habe ich einen Zufallsgenerator gebaut, der neue IDs erstellt,
-     * die positiv und nicht doppelt sind.
-     */
-
-    public int erstelleID(){
-        Random random = new Random();
-        eID = random.nextInt();
-        if(eID <= 0){
-            erstelleID();
-        } else if (eID == mensch.getId()){
-            erstelleID();
-        } else {
-            System.out.println(eID);
-        }
-        return eID;
+    public void addPerson(Person person) {
+            personList.add(person);
     }
 
     /**
