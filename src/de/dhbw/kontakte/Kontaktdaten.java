@@ -26,7 +26,7 @@ public class Kontaktdaten implements KontaktDatenbank {
     public HashMap<Person, Ort> besuche = new HashMap<>();
 
     public Mensch mensch;
-    public Location location = new Location();
+    public Location location;
 
 
     /**

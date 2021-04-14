@@ -60,7 +60,7 @@ public class Mensch implements Person{
 
     @Override
     public String toString() {
-        return "Mensch{" +
+        return "Mensch {" +
                 "id = " + id +
                 ", name = '" + this.name + '\'' +
                 ", adresse = '" + this.adresse + '\'' +

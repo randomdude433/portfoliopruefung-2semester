@@ -1,20 +1,25 @@
 package de.dhbw.kontakte;
 
+import java.util.Random;
+
 public class Location implements Ort{
 
-    public Location() {
-        ortID = this.getOrtId();
-        ortName = this.getOrtName();
-        ortAdresse = this.getOrtAdresse();
+    private int ortID;
+    private String ortName;
+    private String ortAdresse;
+    private int eid;
+
+    public Location(String ortName, String ortAdresse) {
+        this.ortID = erstelleID();
+        this.ortName = ortName;
+        this.ortAdresse = ortAdresse;
     }
 
     /**
      * Hier werden die benötigten Variablen für das Interface Ort erstellt
      */
 
-    private int ortID = this.getOrtId();
-    private String ortName = this.getOrtName();
-    private String ortAdresse = this.getOrtAdresse();
+
 
     /**
      * Hier implementiere ich das Interface Ort
@@ -24,27 +29,31 @@ public class Location implements Ort{
         return this.ortID;
     }
 
-    public void setOrtID(int ortID) {
-        this.ortID = ortID;
-    }
-
     public String getOrtName() {
         return this.ortName;
-    }
-
-    public void setOrtName(String ortName) {
-        this.ortName = ortName;
     }
 
     public String getOrtAdresse() {
         return this.ortAdresse;
     }
 
-    public void setOrtAdresse(String ortAdresse) {
-        this.ortAdresse = ortAdresse;
+    public int erstelleID(){
+        Random random = new Random();
+        eid = random.nextInt();
+        if(eid <= 0 || eid == getOrtId()){
+            erstelleID();
+        } else {
+            System.out.println(eid);
+        }
+        return eid;
     }
 
-    public void ortToSting(){
-        System.out.println( "Ort ID " + ortID + " Name: " + ortName + " Adresse: " + ortAdresse);
+    @Override
+    public String toString() {
+        return "Location {" +
+                "ortID = " + ortID +
+                ", ortName = '" + ortName + '\'' +
+                ", ortAdresse = '" + ortAdresse + '\'' +
+                '}';
     }
 }

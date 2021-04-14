@@ -18,6 +18,8 @@ public class Kontakte {
             Mensch nuller = new Mensch("null", null, null, null);
             Mensch jakob = new Mensch("Jakob", "Hünstetten", "32432546", "jakobthomas2@t-online.de");
 
+            Location hollywood = new Location("L.A.", "Broadway");
+
 
             /**
              * Um diese Personen in die Datenbank aufzunehmen, muss man sie der entsprechenden Liste hinzufügen
@@ -25,6 +27,7 @@ public class Kontakte {
 
             k.addPerson(jakob);
             k.addPerson(nuller);
+            k.addOrt(hollywood);
 
             /**
              * Zur Kontrolle kann man sich die Listen ausgeben lassen
