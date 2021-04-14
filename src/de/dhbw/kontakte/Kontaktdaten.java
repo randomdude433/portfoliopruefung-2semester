@@ -1,9 +1,10 @@
 package de.dhbw.kontakte;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.HashMap;
-
+import java.util.Set;
 
 
 public class Kontaktdaten implements KontaktDatenbank {
@@ -14,7 +15,6 @@ public class Kontaktdaten implements KontaktDatenbank {
 
     public ArrayList<Person> personList = new ArrayList<>();
     public ArrayList<Ort> ortList = new ArrayList<>();
-    public ArrayList<Person> personArrayList = new ArrayList<>();
 
     /**
      * Da Begegnungen und Besuche aus zwei Variablen bestehen, ist es nicht ohne weiteres möglich, diese
@@ -25,10 +25,6 @@ public class Kontaktdaten implements KontaktDatenbank {
     public HashMap<Person, Person> begegnungen = new HashMap<>();
     public HashMap<Person, Ort> besuche = new HashMap<>();
 
-    public Mensch mensch;
-    public Location location;
-
-
     /**
      * Im folgenden Abschnitt implementiere ich das Interface für KontaktDatenbanken
      * Dafür muss jede Funktion aus KontaktDatenbanken hier formuliert werden.
@@ -36,6 +32,7 @@ public class Kontaktdaten implements KontaktDatenbank {
 
     public void addPerson(Person person) {
             personList.add(person);
+
     }
 
     /**
@@ -43,33 +40,35 @@ public class Kontaktdaten implements KontaktDatenbank {
      */
 
     public Person getPerson(int id) {
-        for (Person mensch:personList) {
-            if (mensch.getId() == id) {
-                System.out.println(mensch);
-                return mensch;
-            } else {
-                System.out.println("Keine Person ");
-                return null;
-            }
-        }
-        return null;
-    }
-    public Person getPerson (String name) {
-        for (int i = 0; i <= personList.size(); i++) {
-            if (mensch.getName() == name) {
-                return mensch;
+        for (Person person:personList) {
+            if (person.getId() == id) {
+                System.out.println(person);
+                return person;
             }
         }
         return null;
     }
 
-    public List<Person> getPersonen (String name){
+    /**
+     * Gibt immer nur die erste Person mit dem Namen aus
+     */
+
+    public Person getPerson (String name) {
+        for (Person person: personList) {
+            if (person.getName().equals(name)) {
+                return person;
+            }
+        }
+        return null;
+    }
+
+    public ArrayList<Person> getPersonen (String name){
+        ArrayList<Person> personArrayList = new ArrayList<>();
         for (Person mensch: personList ){
-            if (name == mensch.getName()){
-                personArrayList.add(this.mensch);
+            if (mensch.getName().equals(name)){
+                personArrayList.add(mensch);
                 System.out.println("Mensch hinzugefügt");
             }
-           return null;
         }
         return personArrayList;
     }
@@ -81,7 +80,7 @@ public class Kontaktdaten implements KontaktDatenbank {
     public Ort getOrt(int ortID){
         for (Ort location: ortList){
             if (location.getOrtId() == ortID){
-                return this.location;
+                return location;
             }
         }
       return null;
@@ -89,8 +88,8 @@ public class Kontaktdaten implements KontaktDatenbank {
 
     public Ort getOrt(String ortName){
         for (Ort location: ortList){
-            if (location.getOrtName() == ortName){
-                return this.location;
+            if (location.getOrtName().equals(ortName)){
+                return location;
             }
         }
         return null;
@@ -100,6 +99,10 @@ public class Kontaktdaten implements KontaktDatenbank {
         begegnungen.put(person1, person2);
     }
 
+    /**
+     * Wie soll man die Personen nur mit Name eindeutig feststellen?
+     */
+
     public void addBegegnung(String name1, String name2) {
         begegnungen.put(getPerson(name1), getPerson(name2));
     }
@@ -108,15 +111,47 @@ public class Kontaktdaten implements KontaktDatenbank {
         besuche.put(person, ort);
     }
 
+    /**
+     * Wie soll man die Person und den Ort nur mit Name eindeutig feststellen?
+     */
+
     public void addBesuch(String namePerson, String nameOrt){
         besuche.put(getPerson(namePerson), getOrt(nameOrt));
     }
 
+    /**
+     * Mit der Set
+     */
+
     public List<Ort> besuchteOrte(Person person){
-        return this.besuchteOrte(person);
+        ArrayList<Ort> orte = new ArrayList<>();
+        Set<Person> temp1 = besuche.keySet();
+        for (Person i: temp1){
+
+            if(i.equals(person)){
+                orte.add(besuche.get(i));
+                System.out.println(besuche.get(i));
+            }
+        }
+        return orte;
     }
 
     public List<Person> begegnetePersonen(Person person){
-        return this.begegnetePersonen(person);
+        ArrayList<Person> personen = new ArrayList<>();
+        Set<Person> temp2 = begegnungen.keySet();
+        for (Person i: temp2){
+            if(i.equals(person)){
+                personen.add(begegnungen.get(i));
+                System.out.println(begegnungen.get(i));
+            }
+        }
+        for (Person i: temp2){
+            if(begegnungen.get(i).equals(person)){
+                personen.add(i);
+                System.out.println(i);
+            }
+        }
+        return personen;
     }
+
 }

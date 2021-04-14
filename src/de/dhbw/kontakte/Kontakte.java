@@ -1,7 +1,5 @@
 package de.dhbw.kontakte;
 
-import java.util.ArrayList;
-
 public class Kontakte {
 
         public static void main(String[] args) {
@@ -17,9 +15,9 @@ public class Kontakte {
 
             Mensch nuller = new Mensch("null", null, null, null);
             Mensch jakob = new Mensch("Jakob", "Hünstetten", "32432546", "jakobthomas2@t-online.de");
+            Mensch jakob2 = new Mensch("Jakob", "Wiesbaden", "4535434534", null);
 
             Location hollywood = new Location("L.A.", "Broadway");
-
 
             /**
              * Um diese Personen in die Datenbank aufzunehmen, muss man sie der entsprechenden Liste hinzufügen
@@ -27,7 +25,17 @@ public class Kontakte {
 
             k.addPerson(jakob);
             k.addPerson(nuller);
+            k.addPerson(jakob2);
             k.addOrt(hollywood);
+            k.addBegegnung(nuller, jakob);
+            k.addBesuch(jakob, hollywood);
+            k.besuchteOrte(jakob);
+            k.begegnetePersonen(jakob);
+
+
+            for(Person person: k.getPersonen("Jakob")){
+                System.out.println(person);
+            }
 
             /**
              * Zur Kontrolle kann man sich die Listen ausgeben lassen
@@ -35,9 +43,8 @@ public class Kontakte {
 
             System.out.println(k.personList +
                     "\n" + k.ortList +
-                    "\n" + k.personArrayList +
-                    "\n" + k.begegnungen +
-                    "\n" + k.besuche);
+                    "\n" + "Begegnungen: " +  k.begegnungen +
+                    "\n" + "Besuche" + k.besuche);
 
             System.out.println(nuller);
             System.out.println(k.personList);

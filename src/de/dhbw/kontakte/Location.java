@@ -4,15 +4,17 @@ import java.util.Random;
 
 public class Location implements Ort{
 
+    private static int zähler = 1;
     private int ortID;
     private String ortName;
     private String ortAdresse;
     private int eid;
 
     public Location(String ortName, String ortAdresse) {
-        this.ortID = erstelleID();
+        this.ortID = zähler;
         this.ortName = ortName;
         this.ortAdresse = ortAdresse;
+        zähler++;
     }
 
     /**
@@ -35,17 +37,6 @@ public class Location implements Ort{
 
     public String getOrtAdresse() {
         return this.ortAdresse;
-    }
-
-    public int erstelleID(){
-        Random random = new Random();
-        eid = random.nextInt();
-        if(eid <= 0 || eid == getOrtId()){
-            erstelleID();
-        } else {
-            System.out.println(eid);
-        }
-        return eid;
     }
 
     @Override

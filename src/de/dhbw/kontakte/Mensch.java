@@ -1,23 +1,27 @@
 package de.dhbw.kontakte;
 
-
 import java.util.Random;
 
 public class Mensch implements Person{
 
+    /**
+     * Durch den Zähler, der nach Erstellung einer Person +1 macht, bekommt jede Person eine eigene ID
+     */
+
+    private static int zähler = 1;
     private int id;
     private String name;
     private String adresse;
     private String tel;
     private String eMail;
-    private int eid;
 
     public Mensch(String name, String adresse, String tel, String eMail) {
-        this.id = erstelleID();
+        this.id = zähler;
         this.name = name;
         this.adresse = adresse;
         this.tel = tel;
         this.eMail = eMail;
+        zähler++;
     }
 
     public int getId(){
@@ -44,19 +48,6 @@ public class Mensch implements Person{
      * Da die Personen einzigartige IDs brauchen, habe ich einen Zufallsgenerator gebaut, der neue IDs erstellt,
      * die positiv und nicht doppelt sind.
      */
-
-    public int erstelleID(){
-        Random random = new Random();
-        eid = random.nextInt();
-        if(eid <= 0 || eid == getId()){
-            erstelleID();
-        } else {
-            System.out.println(eid);
-        }
-        return eid;
-    }
-
-
 
     @Override
     public String toString() {
