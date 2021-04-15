@@ -32,10 +32,10 @@ public class LayoutFX extends Application {
         Button button = new Button();
         button.setText("Ändern");
         button.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> someText.setText(area.getText()));
-        otherText.setText("§");
+        otherText.setText("drüber gehen");
         otherText.setX(20.0);
         otherText.setY(200.0);
-        someText.setText("Hello World!");
+        someText.setText("Text in Feld eingeben");
         someText.setFont(new Font(52.0));
         someText.setX(50.0);
         someText.setY(500.0);
@@ -62,7 +62,7 @@ public class LayoutFX extends Application {
         //addLayouts(primaryStage);
 
         // Titel des Fensters ändern
-        primaryStage.setTitle("Beispielapplikation zur Vorlesung am 09.04.2021");
+        primaryStage.setTitle("Kove - Kontaktverfolgung");
 
         // Fenster anzeigen
         primaryStage.show();

@@ -1,5 +1,7 @@
 package de.dhbw.kontakte;
 
+import java.sql.Timestamp;
+
 public class Kontakte {
 
         public static void main(String[] args) {
@@ -27,7 +29,7 @@ public class Kontakte {
             k.addPerson(nuller);
             k.addPerson(jakob2);
             k.addOrt(hollywood);
-            k.addBegegnung(nuller, jakob);
+            k.addBegegnung(nuller, jakob, Timestamp.valueOf("01/10/2020 06:43:21"));
             k.addBesuch(jakob, hollywood);
             k.besuchteOrte(jakob);
             k.begegnetePersonen(jakob);
@@ -43,6 +45,7 @@ public class Kontakte {
 
             System.out.println(k.personList +
                     "\n" + k.ortList +
+                    "\n" + "BegegnungenTime" + k.begegnungHashMap +
                     "\n" + "Begegnungen: " +  k.begegnungen +
                     "\n" + "Besuche" + k.besuche);
 

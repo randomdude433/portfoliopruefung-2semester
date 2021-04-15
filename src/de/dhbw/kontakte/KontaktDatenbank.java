@@ -1,6 +1,8 @@
 package de.dhbw.kontakte;
 
 import java.util.List;
+import java.sql.Timestamp;
+
 
 /** Interface für die Kontakt-Datenbank.
  * 
@@ -28,10 +30,10 @@ public interface KontaktDatenbank {
     public Ort getOrt(int id);
 
     /** Registriert eine Begegnung zwischen zwei Personen. **/
-    public void addBegegnung(Person person1, Person person2);
+    public void addBegegnung(Person person1, Person person2, Timestamp timestamp);
 
     /** Registriert eine Begegnung zwischen zwei Personen anhand der Namen. **/
-    public void addBegegnung(String name1, String name2);
+    public void addBegegnung(String name1, String name2, Timestamp timestamp);
 
     /** Registriert einen Besuch einer Person an einem Ort. **/
     public void addBesuch(Person person, Ort ort);

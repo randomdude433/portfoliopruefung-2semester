@@ -1,10 +1,8 @@
 package de.dhbw.kontakte;
 
-import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.HashMap;
-import java.util.Set;
+import java.sql.Timestamp;
+import java.util.*;
+import java.time.LocalDateTime;
 
 
 public class Kontaktdaten implements KontaktDatenbank {
@@ -24,6 +22,8 @@ public class Kontaktdaten implements KontaktDatenbank {
      */
     public HashMap<Person, Person> begegnungen = new HashMap<>();
     public HashMap<Person, Ort> besuche = new HashMap<>();
+    public HashMap<Begegnung, Timestamp> begegnungHashMap = new HashMap<>();
+    public HashMap<Besuch ,Timestamp> besuchHashMap = new HashMap<>();
 
     /**
      * Im folgenden Abschnitt implementiere ich das Interface für KontaktDatenbanken
@@ -95,16 +95,22 @@ public class Kontaktdaten implements KontaktDatenbank {
         return null;
     }
 
-    public void addBegegnung(Person person1, Person person2){
+    public void addBegegnung(Person person1, Person person2, Timestamp timestamp){
+        Begegnung begegnung = new Begegnung(person1, person2);
         begegnungen.put(person1, person2);
+        begegnungHashMap.put(begegnung, timestamp);
+
     }
 
     /**
      * Wie soll man die Personen nur mit Name eindeutig feststellen?
      */
 
-    public void addBegegnung(String name1, String name2) {
+    public void addBegegnung(String name1, String name2, Timestamp timestamp) {
+        Begegnung begegnung = new Begegnung(getPerson(name1), getPerson(name2));
         begegnungen.put(getPerson(name1), getPerson(name2));
+        begegnungHashMap.put(begegnung, timestamp);
+
     }
 
     public void addBesuch(Person person, Ort ort){
@@ -116,7 +122,11 @@ public class Kontaktdaten implements KontaktDatenbank {
      */
 
     public void addBesuch(String namePerson, String nameOrt){
+        Timestamp ts = new Timestamp(new Date().getTime());
         besuche.put(getPerson(namePerson), getOrt(nameOrt));
+
+
+
     }
 
     /**
