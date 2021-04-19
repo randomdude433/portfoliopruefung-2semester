@@ -2,6 +2,11 @@ package de.dhbw.kontakte;
 
 public class Begegnung {
 
+    /**
+     * Die Klasse Begegnung dient dazu, dass man der HashMap für die begegneten Personen, eine Begegnung und noch einen
+     * Zeitraum hinzufügen kann.
+     */
+
     private Person person1;
     private Person person2;
 

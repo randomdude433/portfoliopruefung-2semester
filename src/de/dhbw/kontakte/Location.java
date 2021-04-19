@@ -1,8 +1,12 @@
 package de.dhbw.kontakte;
 
-import java.util.Random;
 
 public class Location implements Ort{
+
+    /**
+     * Ein statischer Zähler, der dem ersten Ort als ortID gegeben wird. Jedes Mal wenn ein neuer Ort erstellt wird,
+     * erhöht der Zähler sich. Somit hat jeder neue Ort, die nächst höhere ID
+     */
 
     private static int zähler = 1;
     private int ortID;
@@ -16,12 +20,6 @@ public class Location implements Ort{
         this.ortAdresse = ortAdresse;
         zähler++;
     }
-
-    /**
-     * Hier werden die benötigten Variablen für das Interface Ort erstellt
-     */
-
-
 
     /**
      * Hier implementiere ich das Interface Ort

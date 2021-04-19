@@ -14,15 +14,21 @@ public class Mensch implements Person{
     private String adresse;
     private String tel;
     private String eMail;
+    private boolean erkrankt;
 
-    public Mensch(String name, String adresse, String tel, String eMail) {
+    public Mensch(String name, String adresse, String tel, String eMail, boolean erkrankt) {
         this.id = zähler;
         this.name = name;
         this.adresse = adresse;
         this.tel = tel;
         this.eMail = eMail;
+        this.erkrankt = erkrankt;
         zähler++;
     }
+
+    /**
+     * Hier werden die Methoden für das Interface Person erstellt
+     */
 
     public int getId(){
         return this.id;
@@ -44,11 +50,6 @@ public class Mensch implements Person{
         return this.eMail;
     }
 
-    /**
-     * Da die Personen einzigartige IDs brauchen, habe ich einen Zufallsgenerator gebaut, der neue IDs erstellt,
-     * die positiv und nicht doppelt sind.
-     */
-
     @Override
     public String toString() {
         return "Mensch {" +
@@ -57,6 +58,7 @@ public class Mensch implements Person{
                 ", adresse = '" + this.adresse + '\'' +
                 ", tel = '" + this.tel + '\'' +
                 ", eMail = '" + this.eMail + '\'' +
+                ", erkrankt = " + this.erkrankt + '\'' +
                 '}';
     }
 }

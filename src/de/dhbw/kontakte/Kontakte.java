@@ -15,9 +15,9 @@ public class Kontakte {
              * Zum Testen müssen wir zuerst Beispiel Objekte erstellen
              */
 
-            Mensch nuller = new Mensch("null", null, null, null);
-            Mensch jakob = new Mensch("Jakob", "Hünstetten", "32432546", "jakobthomas2@t-online.de");
-            Mensch jakob2 = new Mensch("Jakob", "Wiesbaden", "4535434534", null);
+            Mensch nuller = new Mensch("null", null, null, null, true);
+            Mensch jakob = new Mensch("Jakob", "Hünstetten", "32432546", "jakobthomas2@t-online.de", false);
+            Mensch jakob2 = new Mensch("Jakob", "Wiesbaden", "4535434534", null, false);
 
             Location hollywood = new Location("L.A.", "Broadway");
 
@@ -29,8 +29,8 @@ public class Kontakte {
             k.addPerson(nuller);
             k.addPerson(jakob2);
             k.addOrt(hollywood);
-            k.addBegegnung(nuller, jakob, Timestamp.valueOf("01/10/2020 06:43:21"));
-            k.addBesuch(jakob, hollywood);
+            k.addBegegnung(nuller, jakob, Timestamp.valueOf("2020-12-23 12:31:32"), Timestamp.valueOf("2020-12-24 15:34:12"));
+            k.addBesuch(jakob, hollywood, Timestamp.valueOf("2020-12-23 12:31:32"), Timestamp.valueOf("2020-12-23 15:31:32"));
             k.besuchteOrte(jakob);
             k.begegnetePersonen(jakob);
 

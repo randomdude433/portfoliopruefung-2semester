@@ -21,6 +21,11 @@ import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
 
+/**
+ * Die LayoutFX ist noch nicht bearbeitet. Bitte kommen sie zu einem späteren Zeitpunkt wieder.
+ */
+
+
 public class LayoutFX extends Application {
 
     @Override
