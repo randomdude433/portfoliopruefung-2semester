@@ -7,17 +7,18 @@ public interface Ort {
      * Die ID muss existieren (darf nicht null sein) und
      * sie muss auch über alle Ort-Datensätze hinweg eindeutig sein.
      **/
-    public int getId();
+    public int getOrtId();
 
     /** Liefert den Namen des Ortes.
      * 
      * Darf auch null sein.
      **/
-    public String getName();
+    public String getOrtName();
 
     /** Liefert die Adresse des Ortes.
      * 
      * Darf auch null sein.
      **/
-    public String getAdresse();
+    public String getOrtAdresse();
+
 }
